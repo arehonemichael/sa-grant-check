@@ -20,8 +20,9 @@ export function NewsDetailScreen({ route }: Props) {
   }
 
   async function share() {
+    const { title, excerpt, sourceUrl } = article;
     await Share.share({
-      message: `${article.title}\n\n${article.excerpt}\n\nSource: ${article.sourceUrl}`,
+      message: `${title}\n\n${excerpt}\n\nSource: ${sourceUrl}`,
     });
   }
 
