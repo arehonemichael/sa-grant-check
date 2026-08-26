@@ -5,34 +5,32 @@ import { Heading } from '../../components/Heading';
 import { Card } from '../../components/Card';
 import { Disclaimer } from '../../components/Disclaimer';
 import { Button } from '../../components/Button';
-import { OFFICIAL_STATUS_URL, SRD_ROOT_URL } from '../../constants/legal';
+import { OFFICIAL_APPEAL_URL } from '../../constants/legal';
 import { openOfficialSite } from '../../services/browser';
 import { useApp } from '../../context/AppContext';
 import { type } from '../../theme/tokens';
 
 export function AppealScreen() {
   const { colors } = useApp();
+
   return (
     <Screen>
       <Heading
-        title="Reconsideration / appeal explainer"
-        subtitle="The correct next step depends on the exact reason and period shown in your official result."
+        eyebrow="ITSAA / SASSA WEBSITE"
+        title="Appeal"
+        subtitle="Lodge or check an SRD appeal using the SASSA appeal page in a browser."
       />
-      <Card title="Start with your official result">
-        <Text style={[styles.body, { color: colors.text }]}>
-          Check the exact status and reason for the relevant period. Do not send your ID number or application phone number to this app or to people claiming they can appeal for you.
-        </Text>
-      </Card>
-      <Card title="Use official channels only">
-        <Text style={[styles.body, { color: colors.text }]}>
-          If the official SASSA service provides a reconsideration or appeal route for your result, follow the instructions shown there. Rules and routes can change, so this app links you back to the official source rather than copying a form.
-        </Text>
-      </Card>
-      <Button label="Open official status page" onPress={() => openOfficialSite(OFFICIAL_STATUS_URL)} />
-      <Button label="Open official SRD website" variant="secondary" onPress={() => openOfficialSite(SRD_ROOT_URL)} />
       <Disclaimer />
+      <Card title="Before you continue">
+        <Text style={[styles.body, { color: colors.text }]}>SA Grant Check does not lodge or process appeals. Do not send your ID number, cellphone number, OTPs or grant credentials to this app or to third parties claiming they can change your result.</Text>
+        <Text style={[styles.url, { color: colors.secondary }]}>{OFFICIAL_APPEAL_URL}</Text>
+      </Card>
+      <Button label="Open SASSA appeal page" onPress={() => openOfficialSite(OFFICIAL_APPEAL_URL)} />
     </Screen>
   );
 }
 
-const styles = StyleSheet.create({ body: { fontSize: type.body, lineHeight: 23 } });
+const styles = StyleSheet.create({
+  body: { fontSize: type.body, lineHeight: 23 },
+  url: { fontSize: type.small, fontWeight: '800', marginTop: 12 },
+});
