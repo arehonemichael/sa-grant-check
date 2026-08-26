@@ -17,17 +17,21 @@ export function NewsListScreen({ navigation }: Props) {
 
   async function refresh() {
     setRefreshing(true);
-    try { await refreshNews(); } finally { setRefreshing(false); }
+    try {
+      await refreshNews();
+    } finally {
+      setRefreshing(false);
+    }
   }
 
-  const articles = (feed?.articles ?? []).filter((a) => !savedOnly || bookmarks.includes(a.id));
+  const articles = (feed?.articles ?? []).filter((article) => !savedOnly || bookmarks.includes(article.id));
 
   return (
     <Screen refreshing={refreshing} onRefresh={refresh}>
       <Heading
-        eyebrow="OFFLINE-FIRST"
+        eyebrow="AVAILABLE OFFLINE"
         title="News & updates"
-        subtitle="Pull to refresh. If the remote feed is unavailable, the app keeps working from cached or bundled content."
+        subtitle="Helpful SRD information is bundled with the app, so these articles remain available without a data connection."
       />
       <Card>
         <Button
