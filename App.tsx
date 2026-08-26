@@ -8,7 +8,7 @@ import { RootNavigator } from './src/navigation/RootNavigator';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
 
 function AppBody() {
-  const { ready, onboardingComplete, colors } = useApp();
+  const { ready, onboardingComplete, colors, isDark } = useApp();
 
   if (!ready) {
     return (
@@ -19,9 +19,9 @@ function AppBody() {
   }
 
   const navTheme = {
-    ...(colors.background === '#0E171D' ? DarkTheme : DefaultTheme),
+    ...(isDark ? DarkTheme : DefaultTheme),
     colors: {
-      ...(colors.background === '#0E171D' ? DarkTheme.colors : DefaultTheme.colors),
+      ...(isDark ? DarkTheme.colors : DefaultTheme.colors),
       primary: colors.primary,
       background: colors.background,
       card: colors.surface,
@@ -34,7 +34,7 @@ function AppBody() {
   if (!onboardingComplete) {
     return (
       <>
-        <StatusBar style={colors.background === '#0E171D' ? 'light' : 'dark'} />
+        <StatusBar style={isDark ? 'light' : 'dark'} />
         <OnboardingScreen />
       </>
     );
@@ -42,7 +42,7 @@ function AppBody() {
 
   return (
     <NavigationContainer theme={navTheme}>
-      <StatusBar style={colors.background === '#0E171D' ? 'light' : 'dark'} />
+      <StatusBar style={isDark ? 'light' : 'dark'} />
       <RootNavigator />
     </NavigationContainer>
   );
