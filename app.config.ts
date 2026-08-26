@@ -1,7 +1,7 @@
 export default {
   expo: {
     name: 'SA Grant Check – R370 & R350',
-    slug: 'sa-grant-check-r370-r350',
+    slug: 'sa-grant-check',
     version: '1.0.0',
     orientation: 'portrait',
     icon: './assets/icon.png',
@@ -9,17 +9,19 @@ export default {
     splash: {
       image: './assets/splash.png',
       resizeMode: 'contain',
-      backgroundColor: '#F8F5EE',
+      backgroundColor: '#007A4D',
     },
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'za.co.sagrantcheck.app',
+      bundleIdentifier: 'co.za.sagrantcheck.app',
     },
     android: {
-      package: 'za.co.sagrantcheck.app',
+      package: 'co.za.sagrantcheck.app',
+      versionCode: 1,
+      permissions: [],
       adaptiveIcon: {
         foregroundImage: './assets/adaptive-icon.png',
-        backgroundColor: '#F8F5EE',
+        backgroundColor: '#007A4D',
       },
     },
   },
