@@ -15,10 +15,9 @@ export function Button({
   style?: ViewStyle;
 }) {
   const { colors } = useApp();
-  const backgroundColor =
-    variant === 'primary' ? colors.primary : variant === 'secondary' ? colors.surface : 'transparent';
-  const borderColor = variant === 'primary' ? colors.primary : colors.border;
-  const textColor = variant === 'primary' ? '#FFFFFF' : colors.text;
+  const backgroundColor = variant === 'primary' ? colors.primary : variant === 'secondary' ? colors.surface : 'transparent';
+  const borderColor = variant === 'primary' ? colors.primary : variant === 'secondary' ? colors.secondary : colors.border;
+  const textColor = variant === 'primary' ? '#FFFFFF' : variant === 'secondary' ? colors.secondary : colors.text;
 
   return (
     <Pressable
