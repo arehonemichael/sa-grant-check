@@ -14,17 +14,18 @@ export function GuideHomeScreen({ navigation }: Props) {
       <Heading
         eyebrow="PLAIN LANGUAGE"
         title="SRD guide"
-        subtitle="Understand common status results and the next steps without pretending this app controls your application."
+        subtitle="Understand common status results and use safe links to SASSA's own website for the next step."
       />
       <Card title="Status results">
         <Button label="Approved, Pending, Declined & Reconsideration" onPress={() => navigation.navigate('StatusMeanings')} />
       </Card>
-      <Card title="Payment Date Estimator">
+      <Card title="Payment timing">
         <Button label="Open unofficial estimator" onPress={() => navigation.navigate('Estimator')} />
       </Card>
       <Card title="Questions & next steps">
         <Button label="Frequently asked questions" variant="secondary" onPress={() => navigation.navigate('FAQ')} />
-        <Button label="Appeal / reconsideration explainer" variant="secondary" onPress={() => navigation.navigate('Appeal')} />
+        <Button label="Reconsideration" variant="secondary" onPress={() => navigation.navigate('Reconsideration')} />
+        <Button label="Appeal" variant="secondary" onPress={() => navigation.navigate('Appeal')} />
       </Card>
     </Screen>
   );
