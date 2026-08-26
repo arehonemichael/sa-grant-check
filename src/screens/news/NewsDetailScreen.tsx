@@ -5,11 +5,17 @@ import { Screen } from '../../components/Screen';
 import { Button } from '../../components/Button';
 import { Disclaimer } from '../../components/Disclaimer';
 import { useApp } from '../../context/AppContext';
-import type { NewsStackParamList } from '../../types';
+import type { NewsArticle, NewsStackParamList } from '../../types';
 import { openOfficialSite } from '../../services/browser';
 import { spacing, type } from '../../theme/tokens';
 
 type Props = NativeStackScreenProps<NewsStackParamList, 'NewsDetail'>;
+
+async function shareArticle(article: NewsArticle) {
+  await Share.share({
+    message: `${article.title}\n\n${article.excerpt}\n\nSource: ${article.sourceUrl}`,
+  });
+}
 
 export function NewsDetailScreen({ route }: Props) {
   const { feed, colors, bookmarks, toggleBookmark } = useApp();
@@ -17,13 +23,6 @@ export function NewsDetailScreen({ route }: Props) {
 
   if (!article) {
     return <Screen><Text style={{ color: colors.text }}>Article not found.</Text></Screen>;
-  }
-
-  async function share() {
-    const { title, excerpt, sourceUrl } = article;
-    await Share.share({
-      message: `${title}\n\n${excerpt}\n\nSource: ${sourceUrl}`,
-    });
   }
 
   return (
@@ -39,7 +38,7 @@ export function NewsDetailScreen({ route }: Props) {
         label={bookmarks.includes(article.id) ? 'Remove bookmark' : 'Bookmark article'}
         onPress={() => toggleBookmark(article.id)}
       />
-      <Button label="Share article" variant="secondary" onPress={share} />
+      <Button label="Share article" variant="secondary" onPress={() => shareArticle(article)} />
       <Button label={`Source: ${article.sourceName}`} variant="ghost" onPress={() => openOfficialSite(article.sourceUrl)} />
       <Disclaimer />
     </Screen>
