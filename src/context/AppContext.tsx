@@ -17,6 +17,7 @@ type AppContextType = {
   setOnboardingCompleteState: (value: boolean) => void;
   themePreference: ThemePreference;
   setThemePreferenceState: (value: ThemePreference) => Promise<void>;
+  isDark: boolean;
   colors: typeof lightColors;
   bookmarks: string[];
   toggleBookmark: (id: string) => Promise<void>;
@@ -67,8 +68,7 @@ export function AppProvider({ children }: PropsWithChildren) {
     setFeed(await loadNews());
   }
 
-  const effectiveDark =
-    themePreference === 'dark' || (themePreference === 'system' && systemScheme === 'dark');
+  const isDark = themePreference === 'dark' || (themePreference === 'system' && systemScheme === 'dark');
 
   const value = useMemo(
     () => ({
@@ -77,13 +77,14 @@ export function AppProvider({ children }: PropsWithChildren) {
       setOnboardingCompleteState,
       themePreference,
       setThemePreferenceState,
-      colors: (effectiveDark ? darkColors : lightColors) as typeof lightColors,
+      isDark,
+      colors: (isDark ? darkColors : lightColors) as typeof lightColors,
       bookmarks,
       toggleBookmark,
       feed,
       refreshNews,
     }),
-    [ready, onboardingComplete, themePreference, effectiveDark, bookmarks, feed]
+    [ready, onboardingComplete, themePreference, isDark, bookmarks, feed]
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
