@@ -23,24 +23,20 @@ function ActionBody({ kind }: { kind: 'status' | 'apply' }) {
   return (
     <Screen>
       <Heading
-        eyebrow="OFFICIAL WEBSITE"
+        eyebrow="SASSA WEBSITE"
         title={isStatus ? 'Check SRD Status' : 'Apply / Reapply for SRD'}
-        subtitle={
-          isStatus
-            ? 'We will open the real SASSA SRD status page in a browser.'
-            : 'We will open the real SASSA SRD website in a browser.'
-        }
+        subtitle={isStatus ? 'Continue to SASSA’s real SRD status page in a browser.' : 'Continue to SASSA’s real SRD website in a browser.'}
       />
       <Disclaimer />
       <Card title="Before you continue">
         <Text style={[styles.body, { color: colors.text }]}>
           {isStatus
-            ? 'Your ID number and application cellphone number must only be entered on the official website after it opens.'
-            : 'Your application is completed with SASSA. SA Grant Check does not receive or process your application.'}
+            ? 'Enter your ID number and application cellphone number only after the SASSA website opens. SA Grant Check never receives or stores those details.'
+            : 'Your application is completed with SASSA. SA Grant Check does not receive, submit, process or store your application.'}
         </Text>
-        <Text style={[styles.url, { color: colors.primary }]}>{url}</Text>
+        <Text style={[styles.url, { color: colors.secondary }]}>{url}</Text>
       </Card>
-      <Button label={isStatus ? 'Open official status page' : 'Open official application site'} onPress={() => openOfficialSite(url)} />
+      <Button label={isStatus ? 'Open SASSA status page' : 'Open SASSA application site'} onPress={() => openOfficialSite(url)} />
     </Screen>
   );
 }
