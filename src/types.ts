@@ -44,4 +44,6 @@ export type HomeStackParamList = {
   HomeMain: undefined;
   Status: undefined;
   Apply: undefined;
+  Reconsideration: undefined;
+  Appeal: undefined;
 };
