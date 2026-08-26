@@ -5,6 +5,7 @@ import { GuideHomeScreen } from '../screens/guide/GuideHomeScreen';
 import { StatusMeaningsScreen } from '../screens/guide/StatusMeaningsScreen';
 import { EstimatorScreen } from '../screens/guide/EstimatorScreen';
 import { FAQScreen } from '../screens/guide/FAQScreen';
+import { ReconsiderationScreen } from '../screens/guide/ReconsiderationScreen';
 import { AppealScreen } from '../screens/guide/AppealScreen';
 import { useApp } from '../context/AppContext';
 
@@ -18,7 +19,8 @@ export function GuideNavigator() {
       <Stack.Screen name="StatusMeanings" component={StatusMeaningsScreen} options={{ title: 'Status meanings' }} />
       <Stack.Screen name="Estimator" component={EstimatorScreen} options={{ title: 'Payment estimator' }} />
       <Stack.Screen name="FAQ" component={FAQScreen} options={{ title: 'FAQ' }} />
-      <Stack.Screen name="Appeal" component={AppealScreen} options={{ title: 'Reconsideration' }} />
+      <Stack.Screen name="Reconsideration" component={ReconsiderationScreen} options={{ title: 'Reconsideration' }} />
+      <Stack.Screen name="Appeal" component={AppealScreen} options={{ title: 'Appeal' }} />
     </Stack.Navigator>
   );
 }
