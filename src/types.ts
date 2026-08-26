@@ -36,6 +36,7 @@ export type GuideStackParamList = {
   StatusMeanings: undefined;
   Estimator: undefined;
   FAQ: undefined;
+  Reconsideration: undefined;
   Appeal: undefined;
 };
 
