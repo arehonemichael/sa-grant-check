@@ -10,15 +10,15 @@ import { radius, spacing, type } from '../theme/tokens';
 const slides = [
   {
     title: 'Grant information without the clutter',
-    body: 'Read status explanations, payment guidance and verified news in a fast native app that can keep useful content available offline.',
+    body: 'Read SRD status explanations, payment guidance and useful news in a fast native app that works with bundled content.',
   },
   {
-    title: 'Your grant details stay off this app',
-    body: 'We do not ask for, collect, store or transmit your South African ID number or SRD cellphone number.',
+    title: 'Your personal grant details stay out of this app',
+    body: 'SA Grant Check never asks for, collects, stores, caches or transmits your South African ID number or SRD cellphone number.',
   },
   {
-    title: 'Official actions stay official',
-    body: 'When you check a status or apply, we open SASSA’s real website in a browser. We never recreate their application or status forms.',
+    title: 'SASSA actions stay on SASSA’s website',
+    body: 'Status checks, applications, reconsiderations and appeals open the real SASSA website in a browser. This app never recreates those forms.',
   },
 ];
 
@@ -37,10 +37,10 @@ export function OnboardingScreen() {
   }
 
   return (
-    <SafeAreaView style={[styles.safe, { backgroundColor: colors.background }]}>
+    <SafeAreaView style={[styles.safe, { backgroundColor: colors.background }]}> 
       <View style={styles.content}>
-        <Text style={[styles.brand, { color: colors.primary }]}>SA GRANT CHECK</Text>
-        <View style={[styles.heroMark, { backgroundColor: colors.primary }]}>
+        <Text style={[styles.brand, { color: colors.primary }]}>SA GRANT CHECK – R370 & R350</Text>
+        <View style={[styles.heroMark, { backgroundColor: colors.primary }]}> 
           <Text style={styles.heroText}>R370</Text>
         </View>
         <Text style={[styles.title, { color: colors.text }]}>{slide.title}</Text>
@@ -60,7 +60,7 @@ export function OnboardingScreen() {
 const styles = StyleSheet.create({
   safe: { flex: 1 },
   content: { flex: 1, padding: spacing.lg, justifyContent: 'center' },
-  brand: { fontSize: type.tiny, letterSpacing: 2, fontWeight: '900', marginBottom: spacing.lg },
+  brand: { fontSize: type.tiny, letterSpacing: 1.5, fontWeight: '900', marginBottom: spacing.lg },
   heroMark: { width: 108, height: 108, borderRadius: radius.lg, alignItems: 'center', justifyContent: 'center', marginBottom: spacing.xl },
   heroText: { color: '#FFFFFF', fontSize: 29, fontWeight: '900' },
   title: { fontSize: 31, lineHeight: 37, fontWeight: '900', marginBottom: spacing.md },
