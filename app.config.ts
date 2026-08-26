@@ -1,5 +1,3 @@
-import 'dotenv/config';
-
 export default {
   expo: {
     name: 'SA Grant Check – R370 & R350',
@@ -11,7 +9,7 @@ export default {
     splash: {
       image: './assets/splash.png',
       resizeMode: 'contain',
-      backgroundColor: '#F4F7F8',
+      backgroundColor: '#F8F5EE',
     },
     ios: {
       supportsTablet: true,
@@ -21,24 +19,8 @@ export default {
       package: 'za.co.sagrantcheck.app',
       adaptiveIcon: {
         foregroundImage: './assets/adaptive-icon.png',
-        backgroundColor: '#F4F7F8',
+        backgroundColor: '#F8F5EE',
       },
     },
-    plugins: [
-      [
-        'expo-notifications',
-        {
-          color: '#0F766E'
-        }
-      ],
-    ],
-    extra: {
-      newsFeedUrl: process.env.EXPO_PUBLIC_NEWS_FEED_URL ?? '',
-      supportEmail: process.env.EXPO_PUBLIC_SUPPORT_EMAIL ?? 'support@example.com',
-      playStoreUrl: process.env.EXPO_PUBLIC_PLAY_STORE_URL ?? '',
-      eas: {
-        projectId: process.env.EXPO_PUBLIC_EAS_PROJECT_ID ?? ''
-      }
-    }
-  }
+  },
 };
