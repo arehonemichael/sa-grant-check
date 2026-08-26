@@ -11,14 +11,9 @@ import type { HomeStackParamList } from '../../types';
 import {
   CALL_DISPLAY,
   CALL_URL,
-  OFFICIAL_APPEAL_URL,
-  OFFICIAL_APPLY_URL,
-  OFFICIAL_RECONSIDERATION_URL,
-  OFFICIAL_STATUS_URL,
   WHATSAPP_DISPLAY,
   WHATSAPP_URL,
 } from '../../constants/legal';
-import { openOfficialSite } from '../../services/browser';
 import { spacing, type } from '../../theme/tokens';
 
 type Props = NativeStackScreenProps<HomeStackParamList, 'HomeMain'>;
@@ -41,28 +36,28 @@ export function HomeScreen({ navigation }: Props) {
       title: 'Check Status',
       subtitle: 'Open the SASSA SRD status page',
       icon: 'checkmark-circle-outline',
-      onPress: () => openOfficialSite(OFFICIAL_STATUS_URL),
+      onPress: () => navigation.navigate('Status'),
     },
     {
       id: 'apply',
       title: 'Apply / Reapply',
       subtitle: 'Open the SASSA SRD application page',
       icon: 'document-text-outline',
-      onPress: () => openOfficialSite(OFFICIAL_APPLY_URL),
+      onPress: () => navigation.navigate('Apply'),
     },
     {
       id: 'reconsideration',
       title: 'Reconsideration',
       subtitle: 'Open the SASSA reconsideration page',
       icon: 'refresh-outline',
-      onPress: () => openOfficialSite(OFFICIAL_RECONSIDERATION_URL),
+      onPress: () => navigation.navigate('Reconsideration'),
     },
     {
       id: 'appeal',
       title: 'Lodge / Check Appeal',
       subtitle: 'Open the ITSAA appeal page',
       icon: 'scale-outline',
-      onPress: () => openOfficialSite(OFFICIAL_APPEAL_URL),
+      onPress: () => navigation.navigate('Appeal'),
     },
     {
       id: 'whatsapp',
