@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "updatedAt": "2026-08-26T16:00:00+02:00",
+  "articles": [
+    {
+      "id": "example-remote-article",
+      "title": "Example remote news item",
+      "date": "2026-08-26",
+      "excerpt": "Replace this feed with your own verified updates.",
+      "imageLabel": "Remote update",
+      "sourceName": "SASSA SRD website",
+      "sourceUrl": "https://srd.sassa.gov.za/",
+      "body": [
+        "This is the JSON shape expected by the app.",
+        "Keep every article sourced and independently written."
+      ]
+    }
+  ]
+}
