@@ -19,6 +19,7 @@ export default {
       package: 'co.za.sagrantcheck.app',
       versionCode: 1,
       permissions: [],
+      icon: './assets/icon.png',
       adaptiveIcon: {
         foregroundImage: './assets/adaptive-icon.png',
         backgroundColor: '#007A4D',
